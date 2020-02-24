@@ -1,0 +1,278 @@
+This is a list that shows the functionality of the program and in which classes and functions the user can find the code that realizes it. Sometimes the borders between classes are a little blurry so one class could be mentioned multiple times)
+
+Folder->Classes	Functionality (functions)
+----------------------------------------------------------------------------------------------------------------------------------------
+MainWindow
+->MainWindow
+	- Handels main GUI (updateGraph/ redraw/ redraw_score/ Reset Layout)
+	- Select and create Working directories (Change_PV_Folder/ New_Working_Directory/ Change_Working_Directory/ )
+	- Select cores (createTree/ remove/ removeall/ proxyClicked)
+	- Show cores via a map (createMap/ setButtons/ MapToATL/ MapToPAC/ MapToIND/ MapToMED/ MapToWorld)
+	- Show core meta and plot proxy data (cerateEmptyPlots/ createPlots/ selected_changed/ selection_changed/ inverLabel/)
+	- Select the proxy-type to work with (setProxyType/ setProxyForaminiferalIsotope/ setProxyForaminiferalMgCa)
+	- Repair database (Verify)
+	- Start various tools to process data (DataViewCall/ CorrelateCall/ HydroCall/ AMSCall/ AMSAllCall/ AboutCall/ Cradits/ Iport/ IportAll/ Xport/ Comp/ Ext/ Ext_S/ Calibrate/ RunBacon/ Conv/ ImportP/ ImportTarget/ CallImportStack/ Conv/ Conver_ResAge)
+	- Add comments (commentContextMenu/ textChanged),edit references (referenceContextMenu) or E-Paper (set_EPaper/ view_EPaper) to proxies()
+	- Close the program(closeEvent)
+
+Import
+->Import
+	- Allows to import Excel or ASCII dataset into the database
+	- Select a file via browser(browser)
+	- Check its contents and show them(browser)
+	- Parse them to be interpreted by the program (import)
+	- Show the results of parsing (setupTable)
+	- Save the result in netCDF form to add the data to the database (save/browse2)
+
+->ImportAll
+	- Select a Folder to import(browse)
+	- Start importing all excell files in the folder (start)
+
+->ImportPangaea
+	- Select a file with *.tab extension from the Pangaea database and show it.(browse)
+	- Select the column connection between *.tab file and the proxy structure of PDV
+	- Interpret the *.tab file accordingly and add information to the PDV proxy structure.(parse/ setupTable)
+	- You can save as an netCDF file(save(QString)) or directly transform the result into an fitting ASCII(save()) or Excel(savexlsx) file(Xport)
+	- The exported file can later be imported into the database via the regular import tool
+	
+Export
+->Export
+	- Select a file in the MainWindow via list or map
+	- The file is shown in ASCII format at the left (setupASCII)
+	- The PDV proxy data can be found on the left (setupTable)
+	- It is possible to select which meta data should be exported (metaTableSelected)
+	- It is possible to include/exclude meta/proxydata/agemodel/Bacon meta/Bacon age model/Bacon output into the exported file (bacon_meta_TableSelected)
+	- Change the delimiter for the ASCII tabel (delimiterChanged)
+	- Save the file as ASCII(save) or Excel(savexls) file
+	- Everything, except for bacon related content can later be impoerted again
+
+ISO
+->DataView
+	- Show inventory (setupInventory) and apply filter functionallity (checkFilter/ createFilter/ reset)
+	- It is possible to select proxies via this table or set useflags (select/ deselect/ entrySelected)
+	- select an entrie from the list(isotopeSelected) to show the meta data (createMeta), proxy data (setupIsotope) and agemodel(setupAge)
+	- The meta data can be edited(applyData), reloaded(refresh) and saved(save/ applyData)
+	- attach an E-Paper(browse/ open)
+	- Add comments to proxy data (attChanged)
+	- Basin data is added automatically (newBasin) to meta data and inventory
+
+AMS
+->AMS
+	- Shows the agemodel and allows to select an entry (setupTable/ refresh) also shows the agemodel as a depth vs. age plot(createPlot)
+	- The tabel allows to set UseFlags and add comments to each entry (attChanged)
+	- If the entry was already calibrated the correspnding calibration is shows as a plot (createAMSPlot/ selected)
+	- Pressing 'New' allows to create a new entry to the list (NewEntry)
+	- An entry could be edited by clicking the 'Edit' button (EditEntry)
+	- Add a reservoir age from a dataset (reservoirSingle/ reservoirAll/ reservoir)
+	- Allows to apply an 'IntCal' calibration curve to calibrate all AMS data (calibrate/ calibrateAll)
+	- If a Flag was activated or data was calibrated the data is checked for reversals to avoid conflicts(checkReversals)
+	- Save the changes/results to the agemodel file (save_AMS)
+	- Reload the agemodel (reload)
+	- Apply the agemodel on the proxy data and add fill its age column (applyAM)
+	- change the dataset used for calibration (set_CalibData)
+
+->AMSEdit
+	- Gives a simple GUI to edit AMS entries. It is called by AMS->'Edit' Button
+
+->AMSAll
+	- Set a calibration curve (set_CalibData)
+	- Calibrates all AMS entries in the whole database of the proxy(start/ CalibrateAll)
+	- If no reservoir age is given the reservoir age is taken from a database (reservoirLoad/ reservoirAll/ reservoir)
+	- The calibrated data is checked for reversals (checkReversals) and violations are deactivated
+	
+->AMSData
+	- This class contains all agemodel related data
+	- It can read from an existing agemodel (AMSRead) or save an agemodel (AMSSave/ AMSSaveData/ save)
+	- Create a new empty agemodel (newAMS) or add/delete it (addEntry/ delete)
+	- Check for reversals (checkAMS)
+	- Store/Read agemodel data (various get_* and set_* routines)
+	- Calibration of AMS data is done based on 'IntCal' (ReadCalib/ setCalibFile/ calc_CalPDF/ Calc_intPDF/ normPDF/ cummulativePDF/ sortInt/ Sort_intPDF/ Sort_intYear / Sort_hpd_year/ Sort_hpd/ sort)
+	- Interpolate values for depth and age values that do not exist in agemodel(get_Int_Value_Age/ get_Int_Value_Depth)
+	- Bacon data can also be added (various get_bacon_* and set_bacon_* routines/ create_Bacon_out/ create_bacon_age/ erase_bacon)
+
+COR
+->Correlate
+	- Shows the agemodel data(setupTable) an agemodel plot (createAMPPlot) and a plot for sedimentation rate (createSRPlot)
+	- Allows to select single entries (tableSelected)
+	- It is possible to create new entries (newPoint), edit(editPoint) and delete(removePoint) them
+	- Change useflags and add comments(attchanged)
+	- Correlation plot to add links (addPoint) between proxy data and targets (CreateCorPlot/ createLines/ clickRepaint)
+	- Save age model to data(apply) and add age data to proxy (applyAM)
+	- Show resulting proxy data vs. age (createResultPlot)
+	- Instead of using targets from a list, it is possible to use targets based on other cores(readTarget/ selectTarget/ targetS)
+
+->AMEdit
+	- Gives a simple GUI to edit entries. It is called by Correlate->'Edit'-button.
+
+->ImportStack 
+	- Allows to import data from an Excel file (browse), parse it(parse), and save it as a target source(save)
+	- This is called from the MainMenu, but it is related to the 'Correlate' tool
+
+->TargetImport
+	- Allows to turn a normal proxy file with agemodel data into a target file
+	- Via (browse) it is possible to read from an netCDF proxy file and its corresponding age file
+	- The file is imported and parsed via (import)
+	- Via browse2 a filename for the new targetfile could be chosen and the file is saved as a target via (target/ NetCDF_Error/ NetCDF_Error_Message)
+
+->TargetSelect 	
+	- Allows to select a target file from a list(createList/ readTarget/ selected_changed)
+	- The meta data(createMeta) and target data(createTargetPlot) and agemodel (createAgeModelPlot) are shown
+	- Also a map is shown to compare core and target location(createMap)
+	- Press accept to use the target in the correlation tool(accepted) or not(rejected)
+
+Bacon
+->Bacon
+	- After running the tool it is initialized and an existing bacon run detected and loaded(init/ loadResults)
+	- The list of parameters can be edited (setupParameters/ getParameter/ setParameter/ selected/ editData)and is checked after changes(checkParameters)
+	- Open Bacon manual for reference(openManual)  
+	- It is possible to select the lines in the agemodel that should be used by bacon(setupTable/ selected2)
+	- Run Bacon and follow the log (Bacon_Output) until everything is finished (createBaconFile/ Bacon_Run/ Bacon_Finish)
+	- It is possible to abort the calculation(abort)
+	- Calculate results like agemodel(calcResults)
+	- Show results like iteration plot(createITPlot), accumulation plot (createAccPlot), memoryPlot (createMemPlot) and age model plot (createAMSPlot)
+	- The bacon agemodel(setupEnsamble) is shown
+	- The agemodel could be saved (save), added to the proxy files for vs. age plotting(apply) or saved as a target (target) for later use in the correlation tool
+	- The bacon_out file of a bacon run can also be shown (OpenBacon) but it is very timeconsuming
+
+->ShowBacon
+	- Little GUI to show the bacon_out file to the user. It is very slow thanks to its size.
+
+Calibration
+->calib	
+	- Used to calculate SST for Mg/Ca and alkenone proxies
+	- It shows the corresponding proxy (createPlot) as well as a table of the proxy(setupTable)
+	- There is a way to select a calibration-function and change its parameters
+	- Applying the function(apply) and showing results(createSSTPlot)
+	- Save results and add comment to remember calibration function(save)
+
+Compare
+->Compare
+	- Select proxies via map(createMap/ selecttion_changed) or via list(setupIsotope)
+	- Show meta data of selected proxy (isotopeSelected/ selected_changed)
+	- Allow to change colors manually(colorSelect) or automatically(autoColor)
+	- Select the kind of plot and show it(createMultiPlot)
+	
+Hydro
+->Hydro
+	- Show parameter vs. depth fro core location (createPlot/ create***Plot)
+	- Show map with parameter contours for a single depth (createMap/ createMap***)
+	- Set and show a compare location (newCompare/ getCompare)
+	- Change depth for map(depth_changed)
+
+Extract
+->Extract
+	- Create a list of proxies to select from (setupInventory/ checkFilter/ invSelected/ selectAll/ deselectAll/ selectedChanged)
+	- Start extraction (setup/ calc/ gauss/ sort)
+	- Show result (plot/ selectionChanged)
+	- Save or read results (save/ read)
+	- Visualize as map(createmap/ MapTo***/ setButtons)
+	- Show list of extracted cores(setupExtractTable/ listSelected/)
+	- Slider for changing the age(sMoved/ sPressed/ sValue)
+	- Plot results(plot)
+
+->Extract_Single
+	- create a list of proxies to select from (setupInventory/ checkFilter/ invSelected/)
+	- Start extraction (setup/ calc/ gauss/ sort/ AgeModel)
+	- Show result (plot/ selectionChanged)
+	- Save or read results (save/ read)
+
+Dialog
+->About
+	- Shows logos and programm version(About)
+
+->attDialog
+	- Little GUI to change edit a string, this is used in various parts
+
+->Busy
+	- Simple progress bar
+
+->BusyBacon
+	- Allows to abort a Bacon run
+
+->Credits
+	- Shows a list of references
+
+->inputDialog
+	- Little GUI to change edit a string, this is used in various parts
+
+General
+->ColorScheme
+	- Calculates color values for color schemes
+
+->Inventory
+	- Contains all resources related to inventory, proxy data, Target and basin data
+	- Before doing anything with this class set the proxy type(setProxyType)
+	- Read inventory data from file(read), save it(save) or generate a completly new one(generate)
+	- Add entries(addEntry) or delete them(deleteEntry)
+	- Each data value has a 'get' and 'set' routine depending on the proxy type
+	- Proxy data can be read(readData) or saved(saveData)
+	- The proxy data can be checked for consistency(checkData)
+	- A new dataset could be generated (newIsotope/ new IsotopeMeta) or extended(addIsotope)
+	- Again every meta data or column of the proxy data has a 'get_data_/ get_att_' or 'set_data_/set_att_' routine
+	- The datastructure for the proxy is defined via (access_proxy_*)  
+	- The datastructure for the inventory is defined/accessed via (access_inv_*/ write_inv_data)  
+	- The datastructure for the meta data is defined/accessed via (access_meta_*/ write_meta_value)  
+	- The datastructure for the proxy data is defined/accessed via (access_data_*/ write_data_value)  
+	- The basic target data used in the correlation tool is also read and accessed (readTaeget/ get_Target_Length/ get_Target_Age/ get_Target_Value/ get_Target_Error/ get_Target_Age_Error/ get_Target_Vari/ get_Target_Name)
+	- The basin data is also handeld and accessed(read_Basin/ get_Basin/ getBasinname)
+
+->Resources
+	- This is the only class using paths(get_path_*) or filenames(get_filename_*)
+	- It also creates a small config text file to remember working directories and textsizes(get_Textsize/ setTextsize/  get_workdir/ set_workdir/ save) 
+
+Editor
+->Graph
+	- Graph class allows to create all the plots/maps used in the program
+	- It is possible to use several plots on top of each other(setNumber/ deleteAll)
+	- The plot data is given as a array(setData)
+	- It is also possible to give arrays of Comments(setComment), Labels(setLabel), Colors(setColors),UseFlags(setUse), Errors(setError/ setError2) or markers(setMark)
+	- Hide/Show Comments(comHide/ setComHide)
+	- The size of a graph is defined by (setSize)
+	- Axis discriptions and titels can be changed(setTitel/ setTextSize)
+	- Change positions for axis(setAxisType)
+	- Show a color legend (setColorLegend/ setColorScheme)
+	- Each axis could be used with a multiplier(setMultiplicator) and autoscales to the data range(autoSize/ setAutosize)
+	- It is possible to access selected points (getSelected_X/ getSelected_Y) or set them (setSelected_X/ setSelected_Y)
+	- the symbol used for dots could be changed (setSymbol/ getSymbol)
+	- a marker could be added to the graph(addMarker)
+	- Line parameters could be set(setLineStyle/ setLineColor/ setLineWidth)
+	- Most of these parameters could be applyied on multiple columns (setSet*)
+	- Fill area of graphs(setSetPoly)
+	- Use areas instead of dots(setSetArea)
+	- Fix zoom range (fixRange)
+	- Lock aspect ratio for zoom(setLockAspect)
+	- Set limits for zoom and scrolling(setLimit)
+	- Show a specific value range(setView)
+	- For creating scrollable maps (setFolding/ setBackground/ setBackground2/ setRepeat)
+	- Add lines to plots(addLine/ setAddMode/ addLineClear/ getSelectedLine)
+	- settings can be (automatically)read or saved(readSettings/ saveSettings) but a default filename must be set first(setSettings)
+	
+->GraphGrid
+	- draws everything related to the axis, titels, grid, background images and color legend
+	- this class is only used by 'Graph' and sould not be used directly
+	
+->GraphData
+	- draws all things data related, like dots and lines
+	- this class is only used by 'Graph' and sould not be used directly
+
+->GraphObjects
+	- draws forground objects spanning several graphs
+	- this class is only used by 'Graph' and sould not be used directly
+
+->EditGraph
+	- shares most of the functionality with 'Graph'
+	- allows to make changes to the graph settings via a GUI(setupDataTab/ setupGlobalTab/ setupLocalTab/ setupObjectTab/ setupOptionsTab/ updateAllTabs)
+	- an image of the current graph could be saved(saveImage)
+	- Settings could be saved/deleted manually(saveSettings/ readSettings/ deleteSettings)
+
+->EditGraph_Graph
+	- identical to 'graph' minus the menu option to open 'Edit Graph'
+	- it is only necessary to avoid endless creation of graph classes
+
+
+
+
+
+
+	
+
