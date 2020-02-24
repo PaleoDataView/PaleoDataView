@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AMS</class>
+ <widget class="QDialog" name="AMS">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1429</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_6">
+   <item>
+    <widget class="QSplitter" name="splitter_3">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="QSplitter" name="splitter">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>350</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Age Data</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QTableView" name="tableView">
+          <property name="font">
+           <font>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Age model of the core. The table can be used to select a specific meassurement.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Index: &lt;/span&gt;Position in the list, sorted by depth.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Depth: &lt;/span&gt;Position of the meassurement in m. Zero refers to the surface layer(youngest age).&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Sample Thickness:&lt;/span&gt; Represents the uncertainty of depth in m. AMS meassurements are always done from a core slice of a certain thickness.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Label:&lt;/span&gt; Label of the meassurement. Should be unique to identify meassurements by a serial number.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Type:&lt;/span&gt; Tag to identify the type of meassurement. Only 'AMS' refers to AMS meassurements and onlythese are used for AMS operations.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Age dated:&lt;/span&gt; Representes the uncalibrated radiocarbonage meassurement from the labratory.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Age std: &lt;/span&gt;Represents the error of the dated age. A positive variation as well as a negative one could be used, since the meassurements are not necessarily symmetric. The error sould be given as a standart deviation. &lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Res. Age:&lt;/span&gt; Represents a reservoir age. The reservoir age is a correcting value substracted from the dated age before calibration. Reservoir ages depend on age as well as on core location. If unknown, a reservoir age from a simulation could be entered by pressing the 'Reservoir Age' or 'Reservoir Age All' button. &lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Res. Age Error&lt;/span&gt;: Refers to the error of the reservoir age.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Cal. yrs:&lt;/span&gt; Refers to the calibrated age estimated by using e.g. 'IntCal13' and the given reservoir age. It is identical to the weighted mean of the resulting pdf of the calibration process.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Cal. yrs min/max:&lt;/span&gt; Refer to the 5% and 95% quantile of the resulting pdf. This means that 90% of all possible values fall into this range. &lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Use Flag:&lt;/span&gt; Flag to signify if the meassurement should be used for agecalculation or not. Only entries with calibrated values can be activated. Also make sure not to create reversals by activating a flag. Flags creating reversals can not be activated. The Use Flag can be changed by clicking on the checkbox in the table.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Comment:&lt;/span&gt; Enter a comment to the meassurement by clicking the correspondig comment cell of the table. Some functions will add comments automatically.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_2">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>350</width>
+         <height>350</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>350</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Statistical information of the selected callibrated age</string>
+       </property>
+       <property name="title">
+        <string>Data</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Dated age of an AMS meassurement.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Dated Age : 10000 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Positive error of the measurement (1 sigma).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>ULC : 10100 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Negative error of the measurement (1 sigma).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>LCL : 9900 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Used reservoir age correction in ka.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Reservoir Age : 0.4 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mean of the resulting calender age distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Calender Age (First Mean) : 11000 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_10">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Meadian of the resulting calender age distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Median : 11000 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_11">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Weighted mean of the resulting age distribution. This value is added to the agemodel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Weighted Mean : 11000 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_12">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mid age of the resulting calender age distribution.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Mid Age : 11000 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_8">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Positive error of the resulting calender age distribution (1 sigma).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>ULC : 11100 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_9">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Negative error of the resulting calender age distribution (1 sigma).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>LCL : 10900 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_13">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;5% quantile of the age distribution. . This means that 95% of the pdf is bigger or equal to this value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>95% UL : 12000 yrs</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_14">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;95% quantile of the age distribution. This means that 95% of the pdf is smaller or equal to this value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>95% LL :10000yrs</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_4">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>350</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Options</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QPushButton" name="pushButton_7">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add new information to the age model. The entry will be empty at first, but by pressing the 'Edit' button all data could be entered.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>New</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_9">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Edit an entry of the age model manually.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_8">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete an entry from the age model. There is no undo-function, but it is possible to reload the file to revert all changes as long as the 'Save Age Data' button was not clicked.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suggest a Reservoir Age. This is based on simulations done by &lt;a name=&quot;a1_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=Butzin%2C+M&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;M&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Butzin, &lt;/span&gt;&lt;a name=&quot;a2_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=K%C3%B6hler%2C+P&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;P&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Köhler&lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#8b8b8b;&quot;&gt; and &lt;/span&gt;&lt;a name=&quot;a3_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=Lohmann%2C+G&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;G&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Lohmann. &lt;/span&gt;&lt;a href=&quot;https://doi.org/10.1002/2017GL074688&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; font-weight:600; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;https://doi.org/10.1002/2017GL074688&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;If no reservoir age could be found for the core location, the nearest grid cells are checked for values, with increasing distance to the core location. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Reservoir Age</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_11">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Suggest a Reservoir Age. This is based on simulations done by &lt;a name=&quot;a1_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=Butzin%2C+M&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;M&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Butzin, &lt;/span&gt;&lt;a name=&quot;a2_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=K%C3%B6hler%2C+P&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;P&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Köhler&lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#8b8b8b;&quot;&gt; and &lt;/span&gt;&lt;a name=&quot;a3_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=Lohmann%2C+G&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;G&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Lohmann. &lt;/span&gt;&lt;a href=&quot;https://doi.org/10.1002/2017GL074688&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; font-weight:600; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;https://doi.org/10.1002/2017GL074688&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Reservoir Age All</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calibrate a single entry. This function requires dated age values including errors as well as a reservoir age. If no reservoir age is present the reservoir age function is called first.&lt;/p&gt;&lt;p&gt;The result is shown on the bottom graph. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Calibrate</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_5">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calibrate all entries.  This function requires dated age values including errors as well as a reservoir age. If no reservoir age is present the reservoir age function is called first.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Calibrate All</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_6">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reload age model from file and discard changes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Reload</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save age model to file. All changes become permanent.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Save Age Data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_10">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add basic age information to proxy file. This enables plotting vs. age in some tools.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>Add Age to Proxy</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QSplitter" name="splitter_2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>Age-Depth Relation</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QGraphicsView" name="graphicsView">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Grpah of the agemodel (depth vs. age).&lt;/p&gt;&lt;p&gt;Blue dots represent the calibrated data.&lt;/p&gt;&lt;p&gt;Yellow dots represent the uncallibrated data.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_5">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>C14 Calibration Curve</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QGraphicsView" name="graphicsView_3">
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="mouseTracking">
+           <bool>true</bool>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Graph showing the callibration of the currently selected age model entry.&lt;/p&gt;&lt;p&gt;Use &lt;span style=&quot; font-weight:600;&quot;&gt;up/down&lt;/span&gt; keys to scroll through the calibration function.&lt;/p&gt;&lt;p&gt;The distribution on the y-axis represents the dated age distribution minus the reservoir age. The dashed red lines show how this distribution is transformed by the calibration function. On the bottom of the grap the resulting pdf is show. The red lines represent the mean and 2*sigma limits. The green lines represent the 5% and 95% quantiles as well as the weighted mean. The green values are added to the table as a result for the calibration.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAlwaysOff</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Calibration Data :</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <italic>true</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>c:\</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Choose a different calibration function. &lt;/p&gt;&lt;p&gt;The file must be a three column ASCII file without header: &lt;br/&gt;calendar age	dated age	dated age error &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string>Change</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

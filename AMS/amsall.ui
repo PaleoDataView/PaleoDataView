@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AMSAll</class>
+ <widget class="QDialog" name="AMSAll">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Calibration Data:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Select a calibration file like 'IntCal13'.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>Browse</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPlainTextEdit" name="plainTextEdit">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Follow the calibration process.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="plainText">
+      <string>WARNING!!!
+
+This is a very powerfull tool. It will recalibrate ALL existing AMS-Data with the given calibration function.
+
+All changed files will be listed in the main window, afterwards.
+
+</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="checkBox">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calibration is only done if no earlier calibration results are present.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Calibrate AMS only if 'NAN'</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="checkBox_2">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use the reservoir age data according to &lt;a name=&quot;a1_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=Butzin%2C+M&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;M&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Butzin, &lt;/span&gt;&lt;a name=&quot;a2_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=K%C3%B6hler%2C+P&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;P&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Köhler&lt;/span&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#8b8b8b;&quot;&gt; and &lt;/span&gt;&lt;a name=&quot;a3_Ctrl&quot;/&gt;&lt;a href=&quot;https://agupubs.onlinelibrary.wiley.com/action/doSearch?ContribAuthorStored=Lohmann%2C+G&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;G&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; color:#005274; background-color:transparent;&quot;&gt;. Lohmann. &lt;/span&gt;&lt;a href=&quot;https://doi.org/10.1002/2017GL074688&quot;&gt;&lt;span style=&quot; font-family:'Open Sans,sans-serif,icomoon'; font-weight:600; text-decoration: underline; color:#005274; background-color:transparent;&quot;&gt;https://doi.org/10.1002/2017GL074688&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Use suggested Reservoir Ages from dataset only if 'NAN'</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Start the calibration process.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="text">
+      <string>Recalibrate All AMSData</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
